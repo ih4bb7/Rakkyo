@@ -181,3 +181,26 @@ app {
         display: block;
     }
 }
+
+.header {
+    position: fixed;
+}
+
+.btn-push {
+    display: inline-block;
+    max-width: 100px;
+    text-align: left;
+    background-color: #8a2be2;
+    font-size: 16px;
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #8a2be2;
+}
+
+    .btn-push:active {
+        transform: translateY(4px);
+        border-bottom: none;
+    }

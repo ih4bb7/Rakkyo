@@ -1,7 +1,47 @@
 ﻿@page "/"
+@using Rakkyo.Data
+@inject WeatherForecastService ForecastService
 
-<h1>Hello, world!</h1>
+<header class="header form-inline">
+    <input type="text" class="form-control" id="Search">
+    <button class="btn-push" style="vertical-align: middle">search</button>
+</header>
 
-Welcome to your new app.
+@if (forecasts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+<div style="padding-top: 60px;">
+    <table class="table" >
+        <thead>
+            <tr>
+                <th>店名</th>
+                <th>評価</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.TemperatureC</td>
+                    <td>@forecast.TemperatureF</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code {
+    private WeatherForecast[] forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+    }
+}
+
