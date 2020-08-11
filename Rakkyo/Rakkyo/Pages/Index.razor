@@ -4,7 +4,7 @@
 
 <header class="header form-inline">
     <input type="text" class="form-control" id="Search">
-    <button id="searchButton" class="btn-push" style="vertical-align: middle">search</button>
+    <a href="#" class="btn-flat-border">Search</a>
 </header>
 
 @if (forecasts == null)
@@ -27,34 +27,65 @@ else
                     <td><a href="#">ジョーズ上海</a></td>
                     <td>5.0</td>
                     <td>
-                        <ul class="menu">
-                            <li>
-                                <a id="editMenuLink1" href="#">…</a>
-                                <ul id="editMenu1">
-                                    <li><a href="#">子カテゴリ1</a></li>
-                                    <li><a href="#">子カテゴリ2</a></li>
-                                    <li><a href="#">子カテゴリ3</a></li>
-                                    <li><a href="#">子カテゴリ4</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <div class="pulldown">
+                            <ul>
+                                <li>
+                                    <a href="#">…</a>
+                                    <ul>
+                                        <li><a href="#">編集</a></li>
+                                        <li><a href="#">削除</a></li>
+                                        <li>
+                                            <a href="#">口コミ</a>
+                                            <ul>
+                                                <li><a href="#">追加</a></li>
+                                                <li><a href="#">編集</a></li>
+                                                <li><a href="#">削除</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">評価</a>
+                                            <ul>
+                                                <li><a href="#">追加</a></li>
+                                                <li><a href="#">編集</a></li>
+                                                <li><a href="#">削除</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </td>
                 </tr>
                 <tr>
                     <td><a href="#">ジョーズ上海</a></td>
                     <td>5.0</td>
                     <td>
-                        <ul class="menu">
-                            <li>
-                                <a id="editMenuLink2" href="#">…</a>
-                                <ul id="editMenu2">
-                                    <li><a href="#">子カテゴリ1</a></li>
-                                    <li><a href="#">子カテゴリ2</a></li>
-                                    <li><a href="#">子カテゴリ3</a></li>
-                                    <li><a href="#">子カテゴリ4</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <div class="pulldown">
+                            <ul>
+                                <li>
+                                    <a href="#">…</a>
+                                    <ul>
+                                        <li><a href="#">編集</a></li>
+                                        <li><a href="#">削除</a></li>
+                                        <li>
+                                            <a href="#">口コミ</a>
+                                            <ul>
+                                                <li><a href="#">追加</a></li>
+                                                <li><a href="#">編集</a></li>
+                                                <li><a href="#">削除</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">評価</a>
+                                            <ul>
+                                                <li><a href="#">追加</a></li>
+                                                <li><a href="#">編集</a></li>
+                                                <li><a href="#">削除</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </td>
                 </tr>
             </tbody>
