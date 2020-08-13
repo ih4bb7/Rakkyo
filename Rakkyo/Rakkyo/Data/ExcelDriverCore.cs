@@ -92,6 +92,19 @@ namespace Rakkyo.Data
             ExcelPackage.Save();
             return;
         }
+        /// <summary>
+        /// 最後の行を見つける
+        /// </summary>
+        public int GetLastRow(string sheetName)
+        {
+            var last = ExcelPackage.Workbook.Worksheets[sheetName].Dimension.End.Row;
+            return last;
+        }
+
+        public object GetValueForAddress(string sheetName, string address)
+        {
+            return ExcelPackage.Workbook.Worksheets[sheetName].Cells[address].Value;
+        }
 
 
 

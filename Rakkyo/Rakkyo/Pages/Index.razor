@@ -1,104 +1,42 @@
 ﻿@page "/"
 @using Rakkyo.Data
-@inject WeatherForecastService ForecastService
 
 <header class="header form-inline">
     <input type="text" class="form-control" id="Search">
-    <a href="#" class="btn-flat-border">Search</a>
+    <a href="" class="btn-flat-border"><i class="material-icons">search</i></a>
 </header>
 
-@if (forecasts == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <div style="padding-top: 60px;">
-        <table class="table">
-            <thead>
+<div style="padding-top: 60px;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="width:50%">店名</th>
+                <th style="width:40%">評価</th>
+                <th style="width:5%"></th>
+                <th style="width:5%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var shop in shopList)
+            {
                 <tr>
-                    <th style="width:50%">店名</th>
-                    <th style="width:25%">評価</th>
-                    <th style="width:25%"></th>
+                    <td><a href="">@shop.ShopName</a></td>
+                    <td>@shop.ComprehensiveEvaluation</td>
+                    <td><a href=""><i class="material-icons">create</i></a></td>
+                    <td><a href=""><i class="material-icons">delete_sweep</i></a></td>
                 </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><a href="#">ジョーズ上海</a></td>
-                    <td>5.0</td>
-                    <td>
-                        <div class="pulldown">
-                            <ul>
-                                <li>
-                                    <a href="#">…</a>
-                                    <ul>
-                                        <li><a href="#">編集</a></li>
-                                        <li><a href="#">削除</a></li>
-                                        <li>
-                                            <a href="#">口コミ</a>
-                                            <ul>
-                                                <li><a href="#">追加</a></li>
-                                                <li><a href="#">編集</a></li>
-                                                <li><a href="#">削除</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">評価</a>
-                                            <ul>
-                                                <li><a href="#">追加</a></li>
-                                                <li><a href="#">編集</a></li>
-                                                <li><a href="#">削除</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><a href="#">ジョーズ上海</a></td>
-                    <td>5.0</td>
-                    <td>
-                        <div class="pulldown">
-                            <ul>
-                                <li>
-                                    <a href="#">…</a>
-                                    <ul>
-                                        <li><a href="#">編集</a></li>
-                                        <li><a href="#">削除</a></li>
-                                        <li>
-                                            <a href="#">口コミ</a>
-                                            <ul>
-                                                <li><a href="#">追加</a></li>
-                                                <li><a href="#">編集</a></li>
-                                                <li><a href="#">削除</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="#">評価</a>
-                                            <ul>
-                                                <li><a href="#">追加</a></li>
-                                                <li><a href="#">編集</a></li>
-                                                <li><a href="#">削除</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-}
+            }
+        </tbody>
+    </table>
+</div>
 
 @code {
-    private WeatherForecast[] forecasts;
+    private List<Shop> shopList;
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        var rakkyoCore = new RakkyoCore();
+        shopList = await rakkyoCore.GetShopList();
     }
 }
 
