@@ -9,5 +9,9 @@ namespace Rakkyo.Data
         public string ShopName { get; set; }
 
         public double ComprehensiveEvaluation { get; set; }
+
+        public string Genre { get; set; }
+
+        public string Place { get; set; }
     }
 }

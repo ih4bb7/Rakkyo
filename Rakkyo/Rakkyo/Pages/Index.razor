@@ -2,8 +2,8 @@
 @using Rakkyo.Data
 
 <header class="header form-inline">
-    <input type="text" class="form-control" id="Search">
-    <a href="" class="btn-flat-border"><i class="material-icons">search</i></a>
+    <input type="text" class="form-control" id="Search" @bind="searchValue" style="width:500px">
+    <a href="" class="btn-flat-border" @onclick="SearchShop"><i class="material-icons">search</i></a>
 </header>
 
 <div style="padding-top: 60px;">
@@ -32,11 +32,19 @@
 
 @code {
     private List<Shop> shopList;
+    private string searchValue;
 
     protected override async Task OnInitializedAsync()
     {
         var rakkyoCore = new RakkyoCore();
         shopList = await rakkyoCore.GetShopList();
+    }
+
+    private async Task SearchShop()
+    {
+        var rakkyoCore = new RakkyoCore();
+        shopList = await rakkyoCore.GetShopList();
+        shopList = shopList.Where(x => x.ShopName.Contains(searchValue)).ToList();
     }
 }
 
