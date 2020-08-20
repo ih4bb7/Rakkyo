@@ -27,7 +27,6 @@ app {
 }
 
 .main {
-    background-color: #f5f5f5;
     flex: 1;
 }
 
@@ -211,3 +210,8 @@ table {
     table-layout: fixed;
 }
 
+.star {
+    font-size: larger;
+    margin: inherit;
+    color: #ffd700;
+}

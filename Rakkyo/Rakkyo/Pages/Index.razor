@@ -19,9 +19,33 @@
         <tbody>
             @foreach (var shop in shopList)
             {
+                @if (0 <= shop.ComprehensiveEvaluation && shop.ComprehensiveEvaluation <= 0.49)
+                {
+
+                }
+                else if (0.5 <= shop.ComprehensiveEvaluation && shop.ComprehensiveEvaluation <= 1.49)
+                {
+                    star = "★";
+                }
+                else if (1.5 <= shop.ComprehensiveEvaluation && shop.ComprehensiveEvaluation <= 2.49)
+                {
+                    star = "★★";
+                }
+                else if (2.5 <= shop.ComprehensiveEvaluation && shop.ComprehensiveEvaluation <= 3.49)
+                {
+                    star = "★★★";
+                }
+                else if (3.5 <= shop.ComprehensiveEvaluation && shop.ComprehensiveEvaluation <= 4.49)
+                {
+                    star = "★★★★";
+                }
+                else if (4.5 <= shop.ComprehensiveEvaluation && shop.ComprehensiveEvaluation <= 5)
+                {
+                    star = "★★★★★";
+                }
                 <tr>
                     <td><a href="">@shop.ShopName</a></td>
-                    <td>@shop.ComprehensiveEvaluation</td>
+                    <td class="form-inline">@shop.ComprehensiveEvaluation&nbsp;<p class="star">@star</p></td>
                     <td><a href=""><i class="material-icons">create</i></a></td>
                     <td><a href=""><i class="material-icons">delete_sweep</i></a></td>
                 </tr>
@@ -33,18 +57,20 @@
 @code {
     private List<Shop> shopList;
     private string searchValue;
+    private string star;
 
     protected override async Task OnInitializedAsync()
     {
         var rakkyoCore = new RakkyoCore();
         shopList = await rakkyoCore.GetShopList();
+        shopList = shopList.OrderByDescending(y => y.ComprehensiveEvaluation).ToList();
     }
 
     private async Task SearchShop()
     {
         var rakkyoCore = new RakkyoCore();
         shopList = await rakkyoCore.GetShopList();
-        shopList = shopList.Where(x => x.ShopName.Contains(searchValue)).ToList();
+        shopList = shopList.Where(x => x.ShopName.Contains(searchValue)).OrderByDescending(y => y.ComprehensiveEvaluation).ToList();
     }
 }
 
