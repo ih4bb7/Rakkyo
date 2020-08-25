@@ -219,3 +219,15 @@ table {
 .marginAuto {
     margin: auto;
 }
+
+.marginRight {
+    margin: 0 0 0 auto;
+}
+
+.width70px {
+    width: 70px;
+}
+
+.resistorForm {
+    padding-top: 60px;
+}

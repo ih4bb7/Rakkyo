@@ -1,51 +1,62 @@
 ﻿@page "/register"
 
-<form>
+<form class="resistorForm">
     <div class="container">
-        <div class="form-group row">
-            <label for="" class="col-sm-2 col-form-label" style="text-align:end">店名</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" style="width:600px">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-9">
+                <div class="form-group row">
+                    <label for="" class="col-sm-2 col-form-label" style="text-align:end">店名</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" style="width:100%">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-sm-2 col-form-label" style="text-align:end">ジャンル</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" style="width:100%">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-sm-2 col-form-label" style="text-align:end">URL</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" style="width:100%">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-sm-2 col-form-label" style="text-align:end">場所</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" style="width:100%">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-sm-2 col-form-label" style="text-align:end">評価</label>
+                    <div class="col-sm-10 form-inline">
+                        <input type="number" class="form-control" style="width:120px" max="5" min="0" step="0.1" placeholder="0～5.0">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-sm-2 col-form-label" style="text-align:end">支払方法</label>
+                    <div class="col-sm-10 marginAuto">
+                        <input type="checkbox" id="cash"><label for="cash">現金</label>&nbsp;
+                        <input type="checkbox" id="card"><label for="card">カード</label>&nbsp;
+                        <input type="checkbox" id="eleManey"><label for="eleManey">電子マネー</label>&nbsp;
+                        <input type="checkbox" id="qr"><label for="qr">QR決済</label>&nbsp;
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="" class="col-sm-2 col-form-label" style="text-align:end">口コミ</label>
+                    <div class="col-sm-10">
+                        <textarea rows="4" class="form-control" style="width:100%"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="marginRight">
+                        <a href="" class="btn-flat-border width70px">登録</a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="" class="col-sm-2 col-form-label" style="text-align:end">ジャンル</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" style="width:600px">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="" class="col-sm-2 col-form-label" style="text-align:end">URL</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" style="width:600px">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="" class="col-sm-2 col-form-label" style="text-align:end">場所</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" style="width:600px">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="" class="col-sm-2 col-form-label" style="text-align:end">評価</label>
-            <div class="col-sm-10 form-inline">
-                <input type="number" class="form-control" style="width:120px" max="5" min="0" step="0.1" placeholder="0～5.0">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="" class="col-sm-2 col-form-label" style="text-align:end">支払方法</label>
-            <div class="col-sm-10 marginAuto">
-                <input type="checkbox" id="cash"><label for="cash">現金</label>&nbsp;
-                <input type="checkbox" id="card"><label for="card">カード</label>&nbsp;
-                <input type="checkbox" id="eleManey"><label for="eleManey">電子マネー</label>&nbsp;
-                <input type="checkbox" id="qr"><label for="qr">QR決済</label>&nbsp;
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="" class="col-sm-2 col-form-label" style="text-align:end">口コミ</label>
-            <div class="col-sm-10">
-                <textarea rows="4" class="form-control" style="width:600px"></textarea>
-            </div>
+            <div class="col-sm-2"></div>
         </div>
     </div>
 </form>
