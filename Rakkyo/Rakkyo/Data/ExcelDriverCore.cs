@@ -54,12 +54,23 @@ namespace Rakkyo.Data
             ExcelPackage.Dispose();
         }
         /// <summary>
-        /// 数字書き込み
+        /// 数字書き込み(Int)
         /// </summary>
-        public void NumberWriting(string sheetName, string cell, int value)
+        public void IntWriting(string sheetName, string cell, int value)
         {
             var sheet = ExcelPackage.Workbook.Worksheets[sheetName];
             sheet.Cells[cell].Style.Numberformat.Format = "0";
+            sheet.Cells[cell].Value = value;
+            ExcelPackage.Save();
+            return;
+        }
+        /// <summary>
+        /// 数字書き込み(Double)
+        /// </summary>
+        public void DoubleWriting(string sheetName, string cell, double value)
+        {
+            var sheet = ExcelPackage.Workbook.Worksheets[sheetName];
+            sheet.Cells[cell].Style.Numberformat.Format = "0.0";
             sheet.Cells[cell].Value = value;
             ExcelPackage.Save();
             return;
@@ -100,10 +111,19 @@ namespace Rakkyo.Data
             var last = ExcelPackage.Workbook.Worksheets[sheetName].Dimension.End.Row;
             return last;
         }
-
+        /// <summary>
+        /// アドレスから値を取得する
+        /// </summary>
         public object GetValueForAddress(string sheetName, string address)
         {
             return ExcelPackage.Workbook.Worksheets[sheetName].Cells[address].Value;
+        }
+        /// <summary>
+        /// 数値セルのフォーマット指定
+        /// </summary>
+        public void SetNumberFormat(string sheetName, string address, string format)
+        {
+            ExcelPackage.Workbook.Worksheets[sheetName].Cells[address].Style.Numberformat.Format = format;
         }
 
 
@@ -207,11 +227,6 @@ namespace Rakkyo.Data
         public static void SetNumberFormat(ExcelWorksheet worksheet, int fromRow, int fromCol, int toRow, int toCol, string format)
         {
             worksheet.Cells[fromRow, fromCol, toRow, toCol].Style.Numberformat.Format = format;
-        }
-
-        public static void SetNumberFormat(ExcelWorksheet worksheet, string address, string format)
-        {
-            worksheet.Cells[address].Style.Numberformat.Format = format;
         }
 
         public static void SetHorizontalAlignment(ExcelWorksheet worksheet, int fromRow, int fromCol, int toRow, int toCol, ExcelHorizontalAlignment horizontalAlignment)

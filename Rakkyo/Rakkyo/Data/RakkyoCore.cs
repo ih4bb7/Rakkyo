@@ -21,6 +21,12 @@ namespace Rakkyo.Data
 
             foreach (var item in (object[,])value)
             {
+                if (item == null)
+                {
+                    count++;
+                    continue;
+                }
+
                 if (count % 5 == 0)
                 {
                     shop.ShopCD = int.Parse(item.ToString());
@@ -35,7 +41,15 @@ namespace Rakkyo.Data
                 }
                 else if (count % 5 == 2)
                 {
-                    shop.ComprehensiveEvaluation = Math.Round(double.Parse(item.ToString()), 2);
+                    if (item == null)
+                    {
+                        var eva = excelDriverCore.GetValueForAddress("“X•Ü", "C" + (count / 5 + 2));
+                        shop.ComprehensiveEvaluation = Math.Round(double.Parse(eva.ToString()), 2);
+                    }
+                    else
+                    {
+                        shop.ComprehensiveEvaluation = Math.Round(double.Parse(item.ToString()), 2);
+                    }
                     count++;
                     continue;
                 }
